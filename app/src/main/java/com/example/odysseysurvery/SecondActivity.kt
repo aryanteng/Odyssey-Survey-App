@@ -6,17 +6,26 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.EditText
 import android.widget.Toast
 import java.util.Dictionary
 
 class SecondActivity : AppCompatActivity() {
+    private lateinit var edtMusic: EditText
+    private lateinit var edtDance: EditText
+    private lateinit var edtPlay: EditText
+    private lateinit var edtFashion: EditText
+    private lateinit var edtFood: EditText
+
     private lateinit var btnSubmit: Button
     private lateinit var btnClear: Button
+
     private lateinit var cbMusic: CheckBox
     private lateinit var cbDance: CheckBox
     private lateinit var cbPlay: CheckBox
     private lateinit var cbFashion: CheckBox
     private lateinit var cbFood: CheckBox
+
     private val arr: ArrayList<String> = arrayListOf()
     private lateinit var name: String
     private lateinit var role: String
@@ -25,8 +34,15 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
+        edtMusic = findViewById(R.id.edt_music)
+        edtDance = findViewById(R.id.edt_dance)
+        edtPlay = findViewById(R.id.edt_play)
+        edtFashion = findViewById(R.id.edt_fashion)
+        edtFood = findViewById(R.id.edt_food)
+
         btnSubmit = findViewById(R.id.btn_submit)
         btnClear = findViewById(R.id.btn_clear)
+
         cbMusic = findViewById(R.id.cb_music)
         cbDance = findViewById(R.id.cb_dance)
         cbPlay = findViewById(R.id.cb_play)
@@ -54,6 +70,12 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun onClearHandler(){
+        edtMusic.setText("")
+        edtDance.setText("")
+        edtPlay.setText("")
+        edtFashion.setText("")
+        edtFood.setText("")
+5
         if(cbMusic.isChecked){
             cbMusic.toggle()
         }
