@@ -18,6 +18,8 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var cbFashion: CheckBox
     private lateinit var cbFood: CheckBox
     private val arr: ArrayList<String> = arrayListOf()
+    private lateinit var name: String
+    private lateinit var role: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,47 +34,64 @@ class SecondActivity : AppCompatActivity() {
         cbFood = findViewById(R.id.cb_food)
 
         btnClear.setOnClickListener{
-            if(cbMusic.isChecked){
-                cbMusic.toggle()
-            }
-            if(cbDance.isChecked){
-                cbDance.toggle()
-            }
-            if(cbPlay.isChecked){
-                cbPlay.toggle()
-            }
-            if(cbFashion.isChecked){
-                cbFashion.toggle()
-            }
-            if(cbFood.isChecked){
-                cbFood.toggle()
-            }
+           onClearHandler()
         }
 
         btnSubmit.setOnClickListener{
-            arr.clear()
-            if(cbMusic.isChecked){
-                arr.add("music")
-            }
-            if(cbDance.isChecked){
-                arr.add("dance")
-            }
-            if(cbPlay.isChecked){
-                arr.add("play")
-            }
-            if(cbFashion.isChecked){
-                arr.add("fashion")
-            }
-            if(cbFood.isChecked){
-                arr.add("food")
-            }
+            onSubmitHandler()
+            name = intent.getStringExtra("name").toString()
+            role = intent.getStringExtra("role").toString()
+            Log.d("2name", name)
+            Log.d("2role", role)
             Log.d("tag", arr.toString())
             Log.d("tag2", arr.javaClass.toString())
             Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ThirdActivity::class.java)
             intent.putExtra("map", arr)
+            intent.putExtra("name", name)
+            intent.putExtra("role", role)
             startActivity(intent)
         }
+
+
+    }
+
+    private fun onClearHandler(){
+        if(cbMusic.isChecked){
+            cbMusic.toggle()
+        }
+        if(cbDance.isChecked){
+            cbDance.toggle()
+        }
+        if(cbPlay.isChecked){
+            cbPlay.toggle()
+        }
+        if(cbFashion.isChecked){
+            cbFashion.toggle()
+        }
+        if(cbFood.isChecked) {
+            cbFood.toggle()
+        }
+    }
+
+    private fun onSubmitHandler(){
+        arr.clear()
+        if(cbMusic.isChecked){
+            arr.add("music")
+        }
+        if(cbDance.isChecked){
+            arr.add("dance")
+        }
+        if(cbPlay.isChecked){
+            arr.add("play")
+        }
+        if(cbFashion.isChecked){
+            arr.add("fashion")
+        }
+        if(cbFood.isChecked){
+            arr.add("food")
+        }
+
     }
 
 
