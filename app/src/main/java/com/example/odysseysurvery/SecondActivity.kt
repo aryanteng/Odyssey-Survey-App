@@ -27,6 +27,7 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var cbFood: CheckBox
 
     private val arr: ArrayList<String> = arrayListOf()
+    private val hash: HashMap<String, String> = hashMapOf()
     private lateinit var name: String
     private lateinit var role: String
 
@@ -58,6 +59,7 @@ class SecondActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener{
             onSubmitHandler()
+            Log.d("hash", hash.toString())
             Log.d("tag", arr.toString())
             Log.d("tag2", arr.javaClass.toString())
             Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
@@ -96,18 +98,23 @@ class SecondActivity : AppCompatActivity() {
     private fun onSubmitHandler(){
         arr.clear()
         if(cbMusic.isChecked){
+            hash["music"] = edtMusic.text.toString()
             arr.add("music")
         }
         if(cbDance.isChecked){
+            hash["dance"] = edtDance.text.toString()
             arr.add("dance")
         }
         if(cbPlay.isChecked){
+            hash["play"] = edtPlay.text.toString()
             arr.add("play")
         }
         if(cbFashion.isChecked){
+            hash["fashion"] = edtFashion.text.toString()
             arr.add("fashion")
         }
         if(cbFood.isChecked){
+            hash["food"] = edtFood.text.toString()
             arr.add("food")
         }
 
