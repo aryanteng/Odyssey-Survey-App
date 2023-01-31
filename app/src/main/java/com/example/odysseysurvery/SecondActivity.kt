@@ -33,16 +33,15 @@ class SecondActivity : AppCompatActivity() {
         cbFashion = findViewById(R.id.cb_fashion)
         cbFood = findViewById(R.id.cb_food)
 
+        name = intent.getStringExtra("name").toString()
+        role = intent.getStringExtra("role").toString()
+
         btnClear.setOnClickListener{
            onClearHandler()
         }
 
         btnSubmit.setOnClickListener{
             onSubmitHandler()
-            name = intent.getStringExtra("name").toString()
-            role = intent.getStringExtra("role").toString()
-            Log.d("2name", name)
-            Log.d("2role", role)
             Log.d("tag", arr.toString())
             Log.d("tag2", arr.javaClass.toString())
             Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
@@ -52,8 +51,6 @@ class SecondActivity : AppCompatActivity() {
             intent.putExtra("role", role)
             startActivity(intent)
         }
-
-
     }
 
     private fun onClearHandler(){
