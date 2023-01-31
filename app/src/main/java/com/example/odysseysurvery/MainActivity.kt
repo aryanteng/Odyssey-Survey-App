@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, SecondActivity::class.java)
                 intent.putExtra("name", name)
                 intent.putExtra("role", role)
-                Log.d("maa chuda", name)
                 startActivity(intent)
             }
             else{

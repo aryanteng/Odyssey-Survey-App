@@ -61,10 +61,10 @@ class SecondActivity : AppCompatActivity() {
             onSubmitHandler()
             Log.d("hash", hash.toString())
             Log.d("tag", arr.toString())
-            Log.d("tag2", arr.javaClass.toString())
             Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ThirdActivity::class.java)
             intent.putExtra("map", arr)
+            intent.putExtra("hash", hash)
             intent.putExtra("name", name)
             intent.putExtra("role", role)
             startActivity(intent)
@@ -97,6 +97,7 @@ class SecondActivity : AppCompatActivity() {
 
     private fun onSubmitHandler(){
         arr.clear()
+        hash.clear()
         if(cbMusic.isChecked){
             hash["music"] = edtMusic.text.toString()
             arr.add("music")
