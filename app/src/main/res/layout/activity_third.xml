@@ -29,16 +29,19 @@
 
     <TextView
         android:id="@+id/name_heading"
-        android:layout_width="45dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
         android:layout_below="@+id/tv_details"
         android:text="Name:"
         android:layout_marginTop="20dp"
+        android:textSize="20dp"
         android:textColor="@color/theme"
         />
 
     <TextView
         android:id="@+id/tv_name"
+        android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
        android:layout_alignBottom="@+id/name_heading"
@@ -48,8 +51,10 @@
 
     <TextView
         android:id="@id/role_heading"
-        android:layout_width="45dp"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
         android:layout_below="@+id/tv_name"
         android:text="Role:"
         android:textColor="@color/theme"
@@ -58,6 +63,7 @@
 
     <TextView
         android:id="@+id/tv_role"
+        android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/role_heading"
