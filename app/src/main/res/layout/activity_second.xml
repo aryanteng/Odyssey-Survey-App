@@ -18,7 +18,7 @@
     <CheckBox
         android:id="@+id/cb_music"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:layout_below="@+id/app_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
 
     <CheckBox
         android:id="@+id/cb_dance"
-        android:layout_marginVertical="10dp"
+        android:layout_marginVertical="5dp"
         android:layout_below="@+id/cb_music"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
 
     <CheckBox
         android:id="@+id/cb_play"
-        android:layout_marginVertical="10dp"
+        android:layout_marginVertical="5dp"
         android:layout_below="@+id/cb_dance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
 
     <CheckBox
         android:id="@+id/cb_fashion"
-        android:layout_marginVertical="10dp"
+        android:layout_marginVertical="5dp"
         android:layout_below="@+id/cb_play"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,9 +62,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cb_fashion"
         android:layout_centerInParent="true"
-        android:layout_marginVertical="10dp"
+        android:layout_marginVertical="5dp"
         android:text="Food"
         android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cb_food"
+        android:layout_marginTop="20dp"
+        android:text="Submit"
+        android:backgroundTint="@color/theme"
+        />
+
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_submit"
+        android:layout_marginTop="10dp"
+        android:text="Clear"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/theme"
+
+        />
 
 
 
