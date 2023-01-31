@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
+    tools:context=".SecondActivity">
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <CheckBox
+        android:id="@+id/cb_music"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/app_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="20dp"
+        android:text="Music" />
+
+    <CheckBox
+        android:id="@+id/cb_dance"
+        android:layout_marginVertical="10dp"
+        android:layout_below="@+id/cb_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="20dp"
+        android:text="Dance" />
+
+    <CheckBox
+        android:id="@+id/cb_play"
+        android:layout_marginVertical="10dp"
+        android:layout_below="@+id/cb_dance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="20dp"
+        android:text="Play" />
+
+    <CheckBox
+        android:id="@+id/cb_fashion"
+        android:layout_marginVertical="10dp"
+        android:layout_below="@+id/cb_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textSize="20dp"
+        android:text="Fashion" />
+
+    <CheckBox
+        android:id="@+id/cb_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cb_fashion"
+        android:layout_centerInParent="true"
+        android:layout_marginVertical="10dp"
+        android:text="Food"
+        android:textSize="20dp" />
+
+
+
+</RelativeLayout>
