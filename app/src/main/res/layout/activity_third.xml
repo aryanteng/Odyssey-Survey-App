@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="20dp"
     tools:context=".ThirdActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:id="@+id/tv_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_logo"
+        android:text="Your Details"
+        android:textSize="20dp"
+        android:textColor="@color/theme"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:id="@+id/name_heading"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_details"
+        android:text="Name:"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/theme"
+        />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_alignBottom="@+id/name_heading"
+        android:layout_alignTop="@+id/name_heading"
+        android:layout_toRightOf="@+id/name_heading"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@id/role_heading"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:text="Role:"
+        android:textColor="@color/theme"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_role"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/role_heading"
+        android:layout_alignTop="@+id/role_heading"
+        android:layout_toRightOf="@+id/role_heading"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>
