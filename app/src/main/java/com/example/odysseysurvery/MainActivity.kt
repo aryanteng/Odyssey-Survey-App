@@ -15,13 +15,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnNext: Button
 
     private var tag: String = "State Change"
-    private lateinit var currState : String
+    private lateinit var stateMess: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.i(tag, "onCreate")
+        stateMess = "State of Activity MainActivity is Created"
+        stateCallback(stateMess)
 
         btnNext = findViewById(R.id.btn_next)
         edtName = findViewById(R.id.edt_name)
@@ -45,32 +46,38 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.i(tag, "State of Activity MainActivity changed from $currState to Started")
-        currState = "Started"
+        stateMess = "State of Activity MainActivity changed from Created to Started"
+        stateCallback(stateMess)
+
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(tag, "State of Activity MainActivity changed from $currState to Resumed")
-        currState = "Resumed"
+        stateMess = "State of Activity MainActivity changed from Started to Resumed"
+        stateCallback(stateMess)
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i(tag, "State of Activity MainActivity changed from $currState to Paused")
-        currState = "Paused"
+        stateMess = "State of Activity MainActivity changed from Resumed to Paused"
+        stateCallback(stateMess)
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i(tag, "State of Activity MainActivity changed from $currState to Stopped")
-        currState = "Stopped"
+        stateMess = "State of Activity MainActivity changed from Paused to Stopped"
+        stateCallback(stateMess)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(tag, "State of Activity MainActivity changed from $currState to Started")
-        currState = "Started"
+        stateMess = "State of Activity MainActivity changed from Stopped to Destroyed"
+        stateCallback(stateMess)
+    }
+
+    private fun stateCallback(stateMess: String){
+        Log.i(tag, stateMess)
+        Toast.makeText(this, stateMess, Toast.LENGTH_SHORT).show()
     }
     
 }
