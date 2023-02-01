@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class ThirdActivity : AppCompatActivity() {
@@ -19,13 +20,15 @@ class ThirdActivity : AppCompatActivity() {
     private var hash: HashMap<String, String> = hashMapOf()
 
     private var tag: String = "State Change"
+    private lateinit var stateMess: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
 
-        Log.i(tag, "onCreate")
+        stateMess = "State of Activity ThirdActivity is Created"
+        stateCallback(stateMess)
 
         tvName = findViewById(R.id.tv_name)
         tvRole = findViewById(R.id.tv_role)
@@ -62,26 +65,37 @@ class ThirdActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.i(tag, "onStart")
+        stateMess = "State of Activity ThirdActivity changed from Created to Started"
+        stateCallback(stateMess)
+
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(tag, "onResume")
+        stateMess = "State of Activity ThirdActivity changed from Started to Resumed"
+        stateCallback(stateMess)
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i(tag, "onPause")
+        stateMess = "State of Activity ThirdActivity changed from Resumed to Paused"
+        stateCallback(stateMess)
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i(tag, "onStop")
+        stateMess = "State of Activity ThirdActivity changed from Paused to Stopped"
+        stateCallback(stateMess)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(tag, "onDestroy")
+        stateMess = "State of Activity ThirdActivity changed from Stopped to Destroyed"
+        stateCallback(stateMess)
+    }
+
+    private fun stateCallback(stateMess: String){
+        Log.i(tag, stateMess)
+        Toast.makeText(this, stateMess, Toast.LENGTH_SHORT).show()
     }
 }
