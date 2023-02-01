@@ -30,9 +30,14 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var name: String
     private lateinit var role: String
 
+    private var tag: String = "State Change"
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+
+        Log.i(tag, "onCreate")
 
         edtMusic = findViewById(R.id.edt_music)
         edtDance = findViewById(R.id.edt_dance)
@@ -114,5 +119,35 @@ class SecondActivity : AppCompatActivity() {
         if(cbFood.isChecked){
             hash["Food"] = edtFood.text.toString()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(tag, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(tag, "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(tag, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(tag, "onStop")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(tag, "onRestart")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(tag, "onDestroy")
     }
 }

@@ -10,16 +10,22 @@ import androidx.appcompat.app.AppCompatActivity
 class ThirdActivity : AppCompatActivity() {
     private lateinit var name: String
     private lateinit var role: String
+
     private lateinit var tvName: TextView
     private lateinit var tvRole: TextView
     private lateinit var tvEvent: TextView
     private lateinit var tvEvents: TextView
+
     private var hash: HashMap<String, String> = hashMapOf()
+
+    private var tag: String = "State Change"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
+
+        Log.i(tag, "onCreate")
 
         tvName = findViewById(R.id.tv_name)
         tvRole = findViewById(R.id.tv_role)
@@ -52,5 +58,35 @@ class ThirdActivity : AppCompatActivity() {
             }
             tvEvents.text = string
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(tag, "onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(tag, "onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(tag, "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(tag, "onStop")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(tag, "onRestart")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(tag, "onDestroy")
     }
 }
