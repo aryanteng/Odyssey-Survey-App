@@ -141,11 +141,6 @@ class SecondActivity : AppCompatActivity() {
         Log.i(tag, "onStop")
     }
 
-    override fun onRestart() {
-        super.onRestart()
-        Log.i(tag, "onRestart")
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         Log.i(tag, "onDestroy")

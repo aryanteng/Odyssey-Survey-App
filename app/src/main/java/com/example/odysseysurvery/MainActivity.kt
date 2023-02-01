@@ -45,33 +45,32 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
-        Log.i(tag, "onStart")
+        Log.i(tag, "State of Activity MainActivity changed from $currState to Started")
+        currState = "Started"
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(tag, "onResume")
+        Log.i(tag, "State of Activity MainActivity changed from $currState to Resumed")
+        currState = "Resumed"
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i(tag, "onPause")
+        Log.i(tag, "State of Activity MainActivity changed from $currState to Paused")
+        currState = "Paused"
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i(tag, "onStop")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.i(tag, "onRestart")
+        Log.i(tag, "State of Activity MainActivity changed from $currState to Stopped")
+        currState = "Stopped"
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(tag, "onDestroy")
+        Log.i(tag, "State of Activity MainActivity changed from $currState to Started")
+        currState = "Started"
     }
     
 }
