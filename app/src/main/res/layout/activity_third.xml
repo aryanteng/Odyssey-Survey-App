@@ -71,4 +71,31 @@
         android:layout_toRightOf="@+id/role_heading"
         android:textColor="@color/black"/>
 
+    <TextView
+        android:id="@+id/event_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/tv_role"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/theme"
+        />
+
+    <TextView
+        android:id="@+id/tv_events"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/event_heading"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:lineHeight="40dp"
+        android:textColor="@color/theme"
+        />
+
+
+
+
+
 </RelativeLayout>

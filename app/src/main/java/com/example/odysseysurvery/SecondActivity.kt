@@ -58,13 +58,18 @@ class SecondActivity : AppCompatActivity() {
 
         btnSubmit.setOnClickListener{
             onSubmitHandler()
-            Log.d("hash", hash.toString())
-            Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, ThirdActivity::class.java)
-            intent.putExtra("hash", hash)
-            intent.putExtra("name", name)
-            intent.putExtra("role", role)
-            startActivity(intent)
+            if(hash.isNotEmpty()){
+                Log.d("hash", hash.toString())
+                Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, ThirdActivity::class.java)
+                intent.putExtra("hash", hash)
+                intent.putExtra("name", name)
+                intent.putExtra("role", role)
+                startActivity(intent)
+            }
+            else{
+                Toast.makeText(this, "Please fill the details!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -95,20 +100,19 @@ class SecondActivity : AppCompatActivity() {
     private fun onSubmitHandler(){
         hash.clear()
         if(cbMusic.isChecked){
-            hash["music"] = edtMusic.text.toString()
+            hash["Music"] = edtMusic.text.toString()
         }
         if(cbDance.isChecked){
-            hash["dance"] = edtDance.text.toString()
+            hash["Dance"] = edtDance.text.toString()
         }
         if(cbPlay.isChecked){
-            hash["play"] = edtPlay.text.toString()
+            hash["Play"] = edtPlay.text.toString()
         }
         if(cbFashion.isChecked){
-            hash["fashion"] = edtFashion.text.toString()
+            hash["Fashion"] = edtFashion.text.toString()
         }
         if(cbFood.isChecked){
-            hash["food"] = edtFood.text.toString()
+            hash["Food"] = edtFood.text.toString()
         }
-
     }
 }
