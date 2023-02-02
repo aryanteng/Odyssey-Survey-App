@@ -1,14 +1,13 @@
 package com.example.odysseysurvery
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
-import java.util.Dictionary
+import androidx.appcompat.app.AppCompatActivity
 
 class SecondActivity : AppCompatActivity() {
     private lateinit var edtMusic: EditText
@@ -26,7 +25,7 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var cbFashion: CheckBox
     private lateinit var cbFood: CheckBox
 
-    private val hash: HashMap<String, String> = hashMapOf()
+    private var hash: HashMap<String, String> = hashMapOf()
     private lateinit var name: String
     private lateinit var role: String
 
@@ -158,6 +157,5 @@ class SecondActivity : AppCompatActivity() {
         Log.i(tag, stateMess)
         Toast.makeText(this, stateMess, Toast.LENGTH_SHORT).show()
     }
-    
-    
+
 }

@@ -3,6 +3,7 @@ package com.example.odysseysurvery
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -79,5 +80,21 @@ class MainActivity : AppCompatActivity() {
         Log.i(tag, stateMess)
         Toast.makeText(this, stateMess, Toast.LENGTH_SHORT).show()
     }
-    
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        val name = edtName.text.toString()
+        val role = edtRole.text.toString()
+        outState.putString("name", name)
+        outState.putString("role", role)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val name = savedInstanceState.getString("name", "")
+        edtName.setText(name)
+        val role = savedInstanceState.getString("role", "")
+        edtRole.setText(role)
+    }
+
 }
