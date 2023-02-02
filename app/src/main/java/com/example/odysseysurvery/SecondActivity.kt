@@ -28,11 +28,11 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var rbFashion: RatingBar
     private lateinit var rbFood: RatingBar
 
-    private lateinit var musicRating: String
-    private lateinit var danceRating: String
-    private lateinit var playRating: String
-    private lateinit var fashionRating: String
-    private lateinit var foodRating: String
+    private var musicRating: String = ""
+    private var danceRating: String = ""
+    private var playRating: String = ""
+    private var fashionRating: String = ""
+    private var foodRating: String = ""
 
 
     private var hash: HashMap<String, String> = hashMapOf()

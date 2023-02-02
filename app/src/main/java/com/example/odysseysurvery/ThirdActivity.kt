@@ -75,25 +75,35 @@ class ThirdActivity : AppCompatActivity() {
     private fun checkEvents(){
         if(hash.isNotEmpty()) {
             tvEvent.visibility = View.VISIBLE
-            if(hash.contains("Music") && hash["Music"] != ""){
-                rbMusic.rating = hash["Music"]!!.toFloat()
+            if(hash.contains("Music")){
                 layoutMusic.visibility = View.VISIBLE
+                if(hash["Music"] != ""){
+                    rbMusic.rating = hash["Music"]!!.toFloat()
+                }
             }
-            if(hash.contains("Dance") && hash["Dance"] != ""){
-                rbDance.rating = hash["Dance"]!!.toFloat()
+            if(hash.contains("Dance")){
                 layoutDance.visibility = View.VISIBLE
+                if(hash["Dance"] != ""){
+                    rbDance.rating = hash["Dance"]!!.toFloat()
+                }
             }
-            if(hash.contains("Play") && hash["Play"] != ""){
-                rbPlay.rating = hash["Play"]!!.toFloat()
+            if(hash.contains("Play")){
                 layoutPlay.visibility = View.VISIBLE
+                if(hash["Play"] != ""){
+                    rbPlay.rating = hash["Play"]!!.toFloat()
+                }
             }
-            if(hash.contains("Fashion") && hash["Fashion"] != ""){
-                rbFashion.rating = hash["Fashion"]!!.toFloat()
+            if(hash.contains("Fashion")){
                 layoutFashion.visibility = View.VISIBLE
+                if(hash["Fashion"] != ""){
+                    rbFashion.rating = hash["Fashion"]!!.toFloat()
+                }
             }
-            if(hash.contains("Food") && hash["Food"] != ""){
-                rbFood.rating = hash["Food"]!!.toFloat()
+            if(hash.contains("Food")){
                 layoutFood.visibility = View.VISIBLE
+                if(hash["Food"] != ""){
+                    rbFood.rating = hash["Food"]!!.toFloat()
+                }
             }
         }
     }
