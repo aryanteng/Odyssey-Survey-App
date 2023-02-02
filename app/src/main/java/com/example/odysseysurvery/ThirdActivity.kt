@@ -51,12 +51,14 @@ class ThirdActivity : AppCompatActivity() {
         if(hash.isNotEmpty()) {
             tvEvent.text = "Events:"
             var string = ""
+            var count = 1
             hash.forEach { (key, value) ->
-                string += if (value == "") {
-                    "$key, Rating: N/A\n"
+                if (value == "") {
+                    string += "$count. $key, Rating: N/A\n"
+                    count++
                 } else {
-                    Log.d("value", value)
-                    "$key, Rating: $value\n"
+                    string += "$count. $key, Rating: $value\n"
+                    count++
                 }
             }
             tvEvents.text = string
