@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/theme"
         android:layout_marginTop="40dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         />
 
     <LinearLayout
@@ -40,7 +40,7 @@
             android:buttonTint="@color/theme"
             android:gravity="center"
             android:text="Music"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/edt_music"
@@ -169,7 +169,6 @@
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cb_food"
         android:layout_marginTop="20dp"
         android:text="Submit"
         android:backgroundTint="@color/theme"
@@ -179,7 +178,6 @@
         android:id="@+id/btn_clear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_submit"
         android:layout_marginTop="10dp"
         android:text="Clear"
         android:backgroundTint="@color/white"
