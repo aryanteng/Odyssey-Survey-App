@@ -4,6 +4,8 @@ import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +17,19 @@ class ThirdActivity : AppCompatActivity() {
     private lateinit var tvName: TextView
     private lateinit var tvRole: TextView
     private lateinit var tvEvent: TextView
-    private lateinit var tvEvents: TextView
+
+    private lateinit var rbMusic: RatingBar
+    private lateinit var rbDance: RatingBar
+    private lateinit var rbPlay: RatingBar
+    private lateinit var rbFashion: RatingBar
+    private lateinit var rbFood: RatingBar
+
+    private lateinit var layoutMusic: LinearLayout
+    private lateinit var layoutDance: LinearLayout
+    private lateinit var layoutPlay: LinearLayout
+    private lateinit var layoutFashion: LinearLayout
+    private lateinit var layoutFood: LinearLayout
+
 
     private var hash: HashMap<String, String> = hashMapOf()
 
@@ -30,10 +44,22 @@ class ThirdActivity : AppCompatActivity() {
         stateMess = "State of Activity ThirdActivity is Created"
         stateCallback(stateMess)
 
+        layoutMusic = findViewById(R.id.layout_music)
+        layoutDance = findViewById(R.id.layout_dance)
+        layoutPlay = findViewById(R.id.layout_play)
+        layoutFashion = findViewById(R.id.layout_fashion)
+        layoutFood = findViewById(R.id.layout_food)
+
+
         tvName = findViewById(R.id.tv_name)
         tvRole = findViewById(R.id.tv_role)
         tvEvent = findViewById(R.id.event_heading)
-        tvEvents = findViewById(R.id.tv_events)
+
+        rbMusic = findViewById(R.id.rb_music)
+        rbDance = findViewById(R.id.rb_dance)
+        rbPlay = findViewById(R.id.rb_play)
+        rbFashion = findViewById(R.id.rb_fashion)
+        rbFood = findViewById(R.id.rb_food)
 
         name = intent.getStringExtra("name").toString()
         role = intent.getStringExtra("role").toString()
@@ -44,24 +70,31 @@ class ThirdActivity : AppCompatActivity() {
 
         checkEvents()
 
-        Log.d("thirdHASH", hash.toString())
     }
 
     private fun checkEvents(){
         if(hash.isNotEmpty()) {
-            tvEvent.text = "Events:"
-            var string = ""
-            var count = 1
-            hash.forEach { (key, value) ->
-                if (value == "") {
-                    string += "$count. $key, Rating: N/A\n"
-                    count++
-                } else {
-                    string += "$count. $key, Rating: $value\n"
-                    count++
-                }
+            tvEvent.visibility = View.VISIBLE
+            if(hash.contains("Music") && hash["Music"] != ""){
+                rbMusic.rating = hash["Music"]!!.toFloat()
+                layoutMusic.visibility = View.VISIBLE
             }
-            tvEvents.text = string
+            if(hash.contains("Dance") && hash["Dance"] != ""){
+                rbDance.rating = hash["Dance"]!!.toFloat()
+                layoutDance.visibility = View.VISIBLE
+            }
+            if(hash.contains("Play") && hash["Play"] != ""){
+                rbPlay.rating = hash["Play"]!!.toFloat()
+                layoutPlay.visibility = View.VISIBLE
+            }
+            if(hash.contains("Fashion") && hash["Fashion"] != ""){
+                rbFashion.rating = hash["Fashion"]!!.toFloat()
+                layoutFashion.visibility = View.VISIBLE
+            }
+            if(hash.contains("Food") && hash["Food"] != ""){
+                rbFood.rating = hash["Food"]!!.toFloat()
+                layoutFood.visibility = View.VISIBLE
+            }
         }
     }
 
@@ -69,7 +102,6 @@ class ThirdActivity : AppCompatActivity() {
         super.onStart()
         stateMess = "State of Activity ThirdActivity changed from Created to Started"
         stateCallback(stateMess)
-
     }
 
     override fun onResume() {

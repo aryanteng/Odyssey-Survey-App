@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -134,6 +135,7 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun onSubmitHandler(){
+        hash.clear()
         if(cbMusic.isChecked){
             hash["Music"] = musicRating
         }
