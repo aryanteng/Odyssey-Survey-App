@@ -32,7 +32,7 @@ class SecondActivity : AppCompatActivity() {
     private var danceRating: String = ""
     private var playRating: String = ""
     private var fashionRating: String = ""
-    private var foodRating: String = ""
+    private var foodRating: String = "1"
 
 
     private var hash: HashMap<String, String> = hashMapOf()
