@@ -6,15 +6,11 @@ import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.RatingBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class SecondActivity : AppCompatActivity() {
-    private lateinit var edtMusic: EditText
-    private lateinit var edtDance: EditText
-    private lateinit var edtPlay: EditText
-    private lateinit var edtFashion: EditText
-    private lateinit var edtFood: EditText
 
     private lateinit var btnSubmit: Button
     private lateinit var btnClear: Button
@@ -24,6 +20,19 @@ class SecondActivity : AppCompatActivity() {
     private lateinit var cbPlay: CheckBox
     private lateinit var cbFashion: CheckBox
     private lateinit var cbFood: CheckBox
+
+    private lateinit var rbMusic: RatingBar
+    private lateinit var rbDance: RatingBar
+    private lateinit var rbPlay: RatingBar
+    private lateinit var rbFashion: RatingBar
+    private lateinit var rbFood: RatingBar
+
+    private lateinit var musicRating: String
+    private lateinit var danceRating: String
+    private lateinit var playRating: String
+    private lateinit var fashionRating: String
+    private lateinit var foodRating: String
+
 
     private var hash: HashMap<String, String> = hashMapOf()
     private lateinit var name: String
@@ -40,12 +49,6 @@ class SecondActivity : AppCompatActivity() {
         stateMess = "State of Activity SecondActivity is Created"
         stateCallback(stateMess)
 
-        edtMusic = findViewById(R.id.edt_music)
-        edtDance = findViewById(R.id.edt_dance)
-        edtPlay = findViewById(R.id.edt_play)
-        edtFashion = findViewById(R.id.edt_fashion)
-        edtFood = findViewById(R.id.edt_food)
-
         btnSubmit = findViewById(R.id.btn_submit)
         btnClear = findViewById(R.id.btn_clear)
 
@@ -55,11 +58,38 @@ class SecondActivity : AppCompatActivity() {
         cbFashion = findViewById(R.id.cb_fashion)
         cbFood = findViewById(R.id.cb_food)
 
+        rbMusic = findViewById(R.id.rb_music)
+        rbDance = findViewById(R.id.rb_dance)
+        rbPlay = findViewById(R.id.rb_play)
+        rbFashion = findViewById(R.id.rb_fashion)
+        rbFood = findViewById(R.id.rb_food)
+
         name = intent.getStringExtra("name").toString()
         role = intent.getStringExtra("role").toString()
 
         btnClear.setOnClickListener{
            onClearHandler()
+        }
+
+        rbMusic.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            Log.d("HEY", rating.toString())
+            musicRating = rating.toString()
+        }
+        rbDance.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            Log.d("HEY", rating.toString())
+            danceRating = rating.toString()
+        }
+        rbPlay.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            Log.d("HEY", rating.toString())
+            playRating = rating.toString()
+        }
+        rbFashion.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            Log.d("HEY", rating.toString())
+           fashionRating = rating.toString()
+        }
+        rbFood.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            Log.d("HEY", rating.toString())
+            foodRating = rating.toString()
         }
 
         btnSubmit.setOnClickListener{
@@ -80,12 +110,11 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun onClearHandler(){
-        edtMusic.setText("")
-        edtDance.setText("")
-        edtPlay.setText("")
-        edtFashion.setText("")
-        edtFood.setText("")
-5
+        rbMusic.rating = 0.0f
+        rbDance.rating = 0.0f
+        rbPlay.rating = 0.0f
+        rbFashion.rating = 0.0f
+        rbFood.rating = 0.0f
         if(cbMusic.isChecked){
             cbMusic.toggle()
         }
@@ -101,24 +130,24 @@ class SecondActivity : AppCompatActivity() {
         if(cbFood.isChecked) {
             cbFood.toggle()
         }
+        hash.clear()
     }
 
     private fun onSubmitHandler(){
-        hash.clear()
         if(cbMusic.isChecked){
-            hash["Music"] = edtMusic.text.toString()
+            hash["Music"] = musicRating
         }
         if(cbDance.isChecked){
-            hash["Dance"] = edtDance.text.toString()
+            hash["Dance"] = danceRating
         }
         if(cbPlay.isChecked){
-            hash["Play"] = edtPlay.text.toString()
+            hash["Play"] = playRating
         }
         if(cbFashion.isChecked){
-            hash["Fashion"] = edtFashion.text.toString()
+            hash["Fashion"] = fashionRating
         }
         if(cbFood.isChecked){
-            hash["Food"] = edtFood.text.toString()
+            hash["Food"] = foodRating
         }
     }
 
