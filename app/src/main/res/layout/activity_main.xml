@@ -1,56 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="20dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@drawable/logo"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        />
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_below="@+id/app_logo"
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/black"
          />
 
     <EditText
+        android:autofillHints="name"
         android:id="@+id/edt_name"
-        android:layout_below='@id/tv_name'
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="John Appleseed"
+        android:inputType="text"
         android:textColorHint="@color/grey"/>
 
     <TextView
         android:id="@+id/tv_role"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/edt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Role"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         />
 
     <EditText
         android:id="@+id/edt_role"
-        android:layout_below='@id/tv_role'
+        android:inputType="text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:hint="Participant or Audience"
         android:textColorHint="@color/grey"
         />
@@ -59,10 +58,9 @@
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edt_role"
         android:layout_marginTop="50dp"
         android:text="Next"
         android:backgroundTint="@color/theme"
         />
 
-</RelativeLayout>
+</LinearLayout>
