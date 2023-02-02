@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="20dp"
+    android:orientation="vertical"
     tools:context=".ThirdActivity">
-
 
     <ImageView
         android:id="@+id/app_logo"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="150dp"
         android:src="@drawable/logo"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
 
     <TextView
         android:id="@+id/tv_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/app_logo"
         android:text="Your Details"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/theme"
         android:layout_marginTop="30dp"
         />
@@ -31,31 +29,25 @@
         android:id="@+id/name_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_below="@+id/tv_details"
+        android:layout_marginEnd="10dp"
         android:text="Name:"
         android:layout_marginTop="20dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/theme"
         />
 
     <TextView
         android:id="@+id/tv_name"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_alignBottom="@+id/name_heading"
-        android:layout_alignTop="@+id/name_heading"
-        android:layout_toRightOf="@+id/name_heading"
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@id/role_heading"
-        android:textSize="20dp"
+        android:id="@+id/role_heading"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_below="@+id/tv_name"
         android:text="Role:"
         android:textColor="@color/theme"
         android:layout_marginTop="10dp"
@@ -63,22 +55,19 @@
 
     <TextView
         android:id="@+id/tv_role"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/role_heading"
-        android:layout_alignTop="@+id/role_heading"
-        android:layout_toRightOf="@+id/role_heading"
         android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/event_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_below="@+id/tv_role"
         android:layout_marginTop="10dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/theme"
         />
 
@@ -86,16 +75,11 @@
         android:id="@+id/tv_events"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_below="@+id/event_heading"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:lineHeight="40dp"
         android:textColor="@color/theme"
         />
 
-
-
-
-
-</RelativeLayout>
+</LinearLayout>
