@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="5dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="15dp"
             android:buttonTint="@color/theme"
             android:text="Dance"
             android:textSize="20sp" />
@@ -84,7 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="5dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="15dp"
             android:buttonTint="@color/theme"
             android:text="Play"
             android:textSize="20sp" />
@@ -108,7 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="5dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="15dp"
             android:buttonTint="@color/theme"
             android:text="Fashion"
             android:textSize="20sp" />
@@ -132,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="5dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="15dp"
             android:buttonTint="@color/theme"
             android:text="Food"
             android:textSize="20sp" />
