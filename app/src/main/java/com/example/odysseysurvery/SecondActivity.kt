@@ -95,19 +95,7 @@ class SecondActivity : AppCompatActivity() {
         }
 
         btnSubmit.setOnClickListener{
-            val bool = onSubmitHandler()
-            if(hash.isNotEmpty() && bool){
-                Log.d("hash", hash.toString())
-                Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, ThirdActivity::class.java)
-                intent.putExtra("hash", hash)
-                intent.putExtra("name", name)
-                intent.putExtra("role", role)
-                startActivity(intent)
-            }
-            else{
-                Toast.makeText(this, "Please fill the details!", Toast.LENGTH_SHORT).show()
-            }
+            onSubmitHandler()
         }
     }
 
@@ -135,7 +123,7 @@ class SecondActivity : AppCompatActivity() {
         hash.clear()
     }
 
-    private fun onSubmitHandler(): Boolean {
+    private fun onSubmitHandler() {
         hash.clear()
         if(cbMusic.isChecked){
             if(musicRating > 0.0f.toString()){
@@ -143,7 +131,7 @@ class SecondActivity : AppCompatActivity() {
             }
             else{
                 Toast.makeText(this, "Please give a rating to Music!", Toast.LENGTH_SHORT).show()
-                return false
+                return
             }
         }
         if(cbDance.isChecked){
@@ -152,7 +140,7 @@ class SecondActivity : AppCompatActivity() {
             }
             else{
                 Toast.makeText(this, "Please give a rating to Dance!", Toast.LENGTH_SHORT).show()
-                return false
+                return
             }
         }
         if(cbPlay.isChecked){
@@ -161,7 +149,7 @@ class SecondActivity : AppCompatActivity() {
             }
             else{
                 Toast.makeText(this, "Please give a rating to Play!", Toast.LENGTH_SHORT).show()
-                return false
+                return
             }
         }
         if(cbFashion.isChecked){
@@ -170,7 +158,7 @@ class SecondActivity : AppCompatActivity() {
             }
             else{
                 Toast.makeText(this, "Please give a rating to Fashion!", Toast.LENGTH_SHORT).show()
-                return false
+                return
             }
         }
         if(cbFood.isChecked){
@@ -179,30 +167,40 @@ class SecondActivity : AppCompatActivity() {
             }
             else{
                 Toast.makeText(this, "Please give a rating to Food!", Toast.LENGTH_SHORT).show()
-                return false
+                return
             }
         }
         if(musicRating > 0.0f.toString() && !cbMusic.isChecked){
             Toast.makeText(this, "Music is not checked!", Toast.LENGTH_SHORT).show()
-            return false
+            return
         }
         if(danceRating > 0.0f.toString() && !cbDance.isChecked){
             Toast.makeText(this, "Dance is not checked!", Toast.LENGTH_SHORT).show()
-            return false
+            return
         }
         if(playRating > 0.0f.toString() && !cbPlay.isChecked){
             Toast.makeText(this, "Play is not checked!", Toast.LENGTH_SHORT).show()
-            return false
+            return
         }
         if(fashionRating > 0.0f.toString() && !cbFashion.isChecked){
             Toast.makeText(this, "Fashion is not checked!", Toast.LENGTH_SHORT).show()
-            return false
+            return
         }
         if(foodRating > 0.0f.toString() && !cbFood.isChecked){
             Toast.makeText(this, "Food is not checked!", Toast.LENGTH_SHORT).show()
-            return false
+            return
         }
-        return true
+        if(hash.isNotEmpty()){
+            Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ThirdActivity::class.java)
+            intent.putExtra("hash", hash)
+            intent.putExtra("name", name)
+            intent.putExtra("role", role)
+            startActivity(intent)
+        }
+        if(hash.isEmpty()) {
+            Toast.makeText(this, "Please fill the details!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onStart() {
