@@ -72,30 +72,25 @@ class SecondActivity : AppCompatActivity() {
            onClearHandler()
         }
 
-        rbMusic.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            Log.d("HEY", rating.toString())
+        rbMusic.setOnRatingBarChangeListener { _, rating, _ ->
             musicRating = rating.toString()
         }
-        rbDance.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            Log.d("HEY", rating.toString())
+        rbDance.setOnRatingBarChangeListener { _, rating, _ ->
             danceRating = rating.toString()
         }
-        rbPlay.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            Log.d("HEY", rating.toString())
+        rbPlay.setOnRatingBarChangeListener { _, rating, _ ->
             playRating = rating.toString()
         }
-        rbFashion.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            Log.d("HEY", rating.toString())
+        rbFashion.setOnRatingBarChangeListener { _, rating, _ ->
            fashionRating = rating.toString()
         }
-        rbFood.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            Log.d("HEY", rating.toString())
+        rbFood.setOnRatingBarChangeListener { _, rating, _ ->
             foodRating = rating.toString()
         }
 
         btnSubmit.setOnClickListener{
-            onSubmitHandler()
-            if(hash.isNotEmpty()){
+            val bool = onSubmitHandler()
+            if(hash.isNotEmpty() && bool){
                 Log.d("hash", hash.toString())
                 Toast.makeText(this, "Entry Recorded!", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, ThirdActivity::class.java)
@@ -105,7 +100,7 @@ class SecondActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             else{
-                Toast.makeText(this, "Please fill the details!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill the details properly!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -134,7 +129,7 @@ class SecondActivity : AppCompatActivity() {
         hash.clear()
     }
 
-    private fun onSubmitHandler(){
+    private fun onSubmitHandler(): Boolean {
         hash.clear()
         if(cbMusic.isChecked){
             hash["Music"] = musicRating
@@ -151,6 +146,27 @@ class SecondActivity : AppCompatActivity() {
         if(cbFood.isChecked){
             hash["Food"] = foodRating
         }
+        if(musicRating > 0f.toString() && !cbMusic.isChecked){
+            Toast.makeText(this, "Music is not checked!", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if(danceRating > 0f.toString() && !cbDance.isChecked){
+            Toast.makeText(this, "Dance is not checked!", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if(playRating > 0f.toString() && !cbPlay.isChecked){
+            Toast.makeText(this, "Play is not checked!", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if(fashionRating > 0f.toString() && !cbFashion.isChecked){
+            Toast.makeText(this, "Fashion is not checked!", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if(foodRating > 0f.toString() && !cbFood.isChecked){
+            Toast.makeText(this, "Food is not checked!", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
     }
 
     override fun onStart() {
