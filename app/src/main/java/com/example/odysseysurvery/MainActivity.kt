@@ -33,10 +33,15 @@ class MainActivity : AppCompatActivity() {
             var name = edtName.text.toString()
             var role = edtRole.text.toString()
             if(name != "" && role != ""){
-                val intent = Intent(this, SecondActivity::class.java)
-                intent.putExtra("name", name)
-                intent.putExtra("role", role)
-                startActivity(intent)
+                if(role.lowercase() == "participant" || role.lowercase() == "audience"){
+                    val intent = Intent(this, SecondActivity::class.java)
+                    intent.putExtra("name", name)
+                    intent.putExtra("role", role)
+                    startActivity(intent)
+                }
+                else{
+                    Toast.makeText(this, "Role can only be of a Participant or Audience!", Toast.LENGTH_SHORT).show()
+                }
             }
             else{
                 Toast.makeText(this, "Please enter the fields!", Toast.LENGTH_SHORT).show()
