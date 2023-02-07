@@ -65,6 +65,12 @@ class SecondActivity : AppCompatActivity() {
         rbFashion = findViewById(R.id.rb_fashion)
         rbFood = findViewById(R.id.rb_food)
 
+        rbMusic.stepSize = 1f
+        rbDance.stepSize = 1f
+        rbPlay.stepSize = 1f
+        rbFashion.stepSize = 1f
+        rbFood.stepSize = 1f
+
         name = intent.getStringExtra("name").toString()
         role = intent.getStringExtra("role").toString()
 
@@ -100,7 +106,7 @@ class SecondActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             else{
-                Toast.makeText(this, "Please fill the details properly!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill the details!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -132,37 +138,67 @@ class SecondActivity : AppCompatActivity() {
     private fun onSubmitHandler(): Boolean {
         hash.clear()
         if(cbMusic.isChecked){
-            hash["Music"] = musicRating
+            if(musicRating > 0.0f.toString()){
+                hash["Music"] = musicRating
+            }
+            else{
+                Toast.makeText(this, "Please give a rating to Music!", Toast.LENGTH_SHORT).show()
+                return false
+            }
         }
         if(cbDance.isChecked){
-            hash["Dance"] = danceRating
+            if(danceRating > 0.0f.toString()){
+                hash["Dance"] = danceRating
+            }
+            else{
+                Toast.makeText(this, "Please give a rating to Dance!", Toast.LENGTH_SHORT).show()
+                return false
+            }
         }
         if(cbPlay.isChecked){
-            hash["Play"] = playRating
+            if(playRating > 0.0f.toString()){
+                hash["Play"] = playRating
+            }
+            else{
+                Toast.makeText(this, "Please give a rating to Play!", Toast.LENGTH_SHORT).show()
+                return false
+            }
         }
         if(cbFashion.isChecked){
-            hash["Fashion"] = fashionRating
+            if(fashionRating > 0.0f.toString()){
+                hash["Fashion"] = fashionRating
+            }
+            else{
+                Toast.makeText(this, "Please give a rating to Fashion!", Toast.LENGTH_SHORT).show()
+                return false
+            }
         }
         if(cbFood.isChecked){
-            hash["Food"] = foodRating
+            if(foodRating > 0.0f.toString()){
+                hash["Food"] = foodRating
+            }
+            else{
+                Toast.makeText(this, "Please give a rating to Food!", Toast.LENGTH_SHORT).show()
+                return false
+            }
         }
-        if(musicRating > 0f.toString() && !cbMusic.isChecked){
+        if(musicRating > 0.0f.toString() && !cbMusic.isChecked){
             Toast.makeText(this, "Music is not checked!", Toast.LENGTH_SHORT).show()
             return false
         }
-        if(danceRating > 0f.toString() && !cbDance.isChecked){
+        if(danceRating > 0.0f.toString() && !cbDance.isChecked){
             Toast.makeText(this, "Dance is not checked!", Toast.LENGTH_SHORT).show()
             return false
         }
-        if(playRating > 0f.toString() && !cbPlay.isChecked){
+        if(playRating > 0.0f.toString() && !cbPlay.isChecked){
             Toast.makeText(this, "Play is not checked!", Toast.LENGTH_SHORT).show()
             return false
         }
-        if(fashionRating > 0f.toString() && !cbFashion.isChecked){
+        if(fashionRating > 0.0f.toString() && !cbFashion.isChecked){
             Toast.makeText(this, "Fashion is not checked!", Toast.LENGTH_SHORT).show()
             return false
         }
-        if(foodRating > 0f.toString() && !cbFood.isChecked){
+        if(foodRating > 0.0f.toString() && !cbFood.isChecked){
             Toast.makeText(this, "Food is not checked!", Toast.LENGTH_SHORT).show()
             return false
         }
